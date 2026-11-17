@@ -1,0 +1,49 @@
+
+package com.softwaretesting;
+
+import java.util.Arrays;
+
+public class Exp16 {
+
+    public boolean isAnagram(String str1, String str2) {
+
+        if (str1 == null || str2 == null) {
+            return false;
+        }
+
+        str1 = str1.replaceAll("\\s", "").toLowerCase();
+        str2 = str2.replaceAll("\\s", "").toLowerCase();
+
+        if (str1.length() != str2.length()) {
+            return false;
+        }
+
+        char[] a = str1.toCharArray();
+        char[] b = str2.toCharArray();
+
+        Arrays.sort(a);
+        Arrays.sort(b);
+
+        return Arrays.equals(a, b);
+    }
+
+    public static void main(String[] args) {
+
+        Exp16 obj = new Exp16();
+
+        System.out.println("ANAGRAM CHECKING");
+        System.out.println("------------------------------");
+
+        System.out.println("listen, silent : " +
+                obj.isAnagram("listen", "silent"));
+
+        System.out.println("hello, world : " +
+                obj.isAnagram("hello", "world"));
+
+        System.out.println("Dormitory, Dirty room : " +
+                obj.isAnagram("Dormitory", "Dirty room"));
+
+        System.out.println("apple, apples : " +
+                obj.isAnagram("apple", "apples"));
+    }
+}
